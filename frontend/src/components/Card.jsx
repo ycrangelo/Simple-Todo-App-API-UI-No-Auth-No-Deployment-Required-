@@ -17,7 +17,7 @@ export function CardComponent() {
   axios
    .get("http://localhost:3000/api/get/todos")
    .then((response) => {
-    setTodos(response.data)
+    setTodos(response.data);
     fetchTodos();
    })
    .catch((error) => console.error("Error fetching todos:", error));
@@ -57,48 +57,54 @@ export function CardComponent() {
      </TableRow>
     </TableHead>
     <TableBody className="divide-y">
-     {todos.map((todo) => (
-      <TableRow
-       key={todo.id}
-       className="bg-white dark:border-gray-700 dark:bg-gray-800"
-      >
-       <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-        {todo.title}
-       </TableCell>
-       <TableCell>
-        <span
-         className={`px-3 py-1 rounded text-sm font-semibold ${todo.is_done
-          ? "text-green-400"
-           : "text-yellow-400"
-          }`}
-        >
-         {todo.is_done ? "Done" : "Pending"}
-        </span>
-       </TableCell>
-       <TableCell>
-        {!todo.is_done && (
-         <Button
-          color="green"
-          size="xs"
-          onClick={() => handleMarkDone(todo.id)}
-         >
-          Done task
-         </Button>
-        )}
-       </TableCell>
-       <TableCell>
-        <Button
-         color="red"
-         size="xs"
-         onClick={() => handleDelete(todo.id)}
-        >
-         Delete task
-        </Button>
+     {todos.length === 0 ? (
+      <TableRow>
+       <TableCell colSpan={4} className="text-center dark:border-gray-700 dark:bg-gray-800">
+        No Todo List
        </TableCell>
       </TableRow>
-     ))}
+     ) : (
+      todos.map((todo) => (
+       <TableRow
+        key={todo.id}
+        className="bg-white dark:border-gray-700 dark:bg-gray-800"
+       >
+        <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+         {todo.title}
+        </TableCell>
+        <TableCell>
+         <span
+          className={`px-3 py-1 rounded text-sm font-semibold ${todo.is_done ? "text-green-400" : "text-yellow-400"
+           }`}
+         >
+          {todo.is_done ? "Done" : "UnDone"}
+         </span>
+        </TableCell>
+        <TableCell>
+         {!todo.is_done && (
+          <Button
+           color="green"
+           size="xs"
+           onClick={() => handleMarkDone(todo.id)}
+          >
+           Done task
+          </Button>
+         )}
+        </TableCell>
+        <TableCell>
+         <Button
+          color="red"
+          size="xs"
+          onClick={() => handleDelete(todo.id)}
+         >
+          Delete task
+         </Button>
+        </TableCell>
+       </TableRow>
+      ))
+     )}
     </TableBody>
    </Table>
   </div>
  );
-}
+};

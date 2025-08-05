@@ -1,18 +1,16 @@
-import { useState } from 'react'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css'
-import { CardComponent } from './components/Card'
-import { ModalComponent } from './components/modal'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const navigate = useNavigate();
 
-  return (
-    <>
-      <div className='mb-5 flex justify-end'>
-        <ModalComponent />
-    </div>
-      <CardComponent />
-    </>
-  )
-}
+  useEffect(() => {
+    //redirect to /todos page
+    navigate("/todos");
+  }, []);
 
-export default App
+  return null;
+};
+
+export default App;
