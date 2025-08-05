@@ -6,7 +6,7 @@ const router = Router()
 
 
 //get method
-router.get("/get/userTodos/", async (req: Request, res: Response) => {
+router.get("/get/Todos/", async (req: Request, res: Response) => {
  try {
     //query to database
   const todos = await db.select().from(todoSchema);
@@ -22,7 +22,8 @@ router.get("/get/userTodos/", async (req: Request, res: Response) => {
 
 //create new todo
 router.post("/post/todos", async (req: Request, res: Response) => {
- const {title}= req.body;
+  const { title } = req.body;
+  console.log("inside todolist create")
  try {
    //check if if title is null
     if (!title) {
