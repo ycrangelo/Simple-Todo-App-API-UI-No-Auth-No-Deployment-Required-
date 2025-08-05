@@ -11,7 +11,7 @@ const corsOptions = {
   origin:  '*',
   methods: ['PUT', 'GET', 'POST', 'OPTIONS', 'DELETE', 'PATCH'],
 };
-
+//added cors for security and connectivity to frontend
 app.use(cors(corsOptions));
 
 app.use("/api", router)
