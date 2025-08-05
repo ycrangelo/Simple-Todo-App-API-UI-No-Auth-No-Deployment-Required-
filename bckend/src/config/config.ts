@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 //importing database
 import { db } from '../database/dbConnect';
-import { todo } from '../database/schema/todoSchema';
+import { todoSchema } from '../database/schema/todoSchema';
 
 
 dotenv.config();
