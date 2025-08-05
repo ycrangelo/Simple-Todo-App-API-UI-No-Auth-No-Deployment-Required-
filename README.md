@@ -1,6 +1,7 @@
 # Simple-Todo-App-API-UI-No-Auth-No-Deployment-Required
 
 ## Demo
+
 https://github.com/user-attachments/assets/1aa576a2-3228-4f83-8d01-ad14c309aeb8
 
 
@@ -22,7 +23,7 @@ https://github.com/user-attachments/assets/1aa576a2-3228-4f83-8d01-ad14c309aeb8
    ```
 3.run server by typing in terminal: npm run dev
 
-##  Backend Setup
+##  frontend Setup
 
 1. Install dependencies add needed files:
 
